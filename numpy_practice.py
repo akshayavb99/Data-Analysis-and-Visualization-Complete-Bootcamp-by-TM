@@ -97,3 +97,53 @@ for i in range(len(arr2d)):
 #             refers to all the elements of that row
 
 #print(arr2d[[0,1]]) #Another method of accessing array rows using row numbers
+
+#--------- NEXT LECTURE --------#
+
+#Other important array functions
+
+#1. arange()
+A=np.arange(1,15,2)
+print(A)
+
+#2. sqrt(array)
+B=np.sqrt(A)
+print(B)
+
+#3. exp(array)-returns array whose elements are e raised to the corresponding element of input array
+C=np.exp(A)
+print(C)
+
+#4. add(array1,array2)-returns the summation of corresponding elements of the 2 arrays.
+#   Overall, the returned value is an array of the same dimension as array1 and array2
+print(np.add(A,B))
+
+#5. maximum(array1,array2)-compares corresponding elements of array1 and array2 and returns the maximum out of the two.
+#   Overall, the returned value is an array of the same dimension as array1 and array2
+print(np.maximum(A,B))
+
+#Reference Links for Numpy: www.scipy.org
+
+#---------- NEXT LECTURE ----------#
+
+#Saving and loading arrays from external memory(For situations where the variable is too large to be stored without external memory)
+
+#Saving single arrays
+arr=np.arange(10)
+#print(arr)
+np.save('saved_arr.npy',arr) #A new file called saved_arr is created with the Numpy format and this stores the array arr
+new_array=np.load('saved_arr.npy') #load is used to load an existing Numpy file
+print(new_array)
+
+#Saving Multiple arrays
+#Multiple arrays are stored as a zip file or archive file
+array1=np.arange(25)
+array2=np.arange(30)
+np.savez('saved_arrays.npz',x=array1,y=array2)
+new_arrayz=np.load('saved_arrays.npz')
+print(new_arrayz['x'])
+
+#Saving to a .txt file
+np.savetxt('textfile_array.txt',array1,delimiter=',')
+text_load=np.loadtxt('textfile_array.txt',delimiter=',')
+print(text_load)
