@@ -148,3 +148,62 @@ np.savetxt('textfile_array.txt',array1,delimiter=',')
 text_load=np.loadtxt('textfile_array.txt',delimiter=',')
 print(text_load)
 
+#----------- NEXT LECTURE ----------#
+
+# Condtional Clauses and Boolean Operations in Numpy
+x=np.array([100,400,500,600]) #Each member 'a'
+y=np.array([10,15,20,25]) #Each member 'b'
+condition=np.array([True,True,False,False]) #Each member cond
+
+#Use loops indirectly
+z=[a if cond else b for a,cond,b in zip(x,condition,y)]
+#print(z)
+
+#Above operation can be performed with numpy as given below
+#np.where(condition,value for yes,value for no)
+z2=np.where(condition,x,y)
+print(z2)
+
+z3=np.where(x>0,0,1)
+print(z3)
+
+#Standard functions in numpy
+
+#1.sum - returns the sum of elements of array
+print(x.sum()) #This is used for row-wise sum
+
+#To test columnwise sum
+n=np.array([[1,2],[3,4]])
+print(n.sum(0))
+
+#2. mean - returns the mean of the elements of the array
+print(x.mean())
+
+#3. std - returns the standard deviation of the array elements
+print(x.std())
+
+#4. var  - returns the variance of the array elements
+print(x.var())
+
+#Logical operations - and, or operations
+condition2=np.array([True,False,True])
+
+#5. any() - or operator; return true of any array element is True
+print(condition2.any())
+
+#6. all() - and operator; returns true if all array elements are true
+print (condition2.all())
+
+#7. sort() - sorts the array
+unsorted_arr=np.array([1,2,5,4,7])
+unsorted_arr.sort()
+print(unsorted_arr)
+
+#8. unique() - returns the unique array elements, removes element redundancy
+arr2=np.array(['solid','liquid','gas','solid','liquid','gas'])
+print(np.unique(arr2))
+
+#in1d(array1,array2) - returns boolean array of dimension of array1, where every element of array1 is checked whether present
+#                       in array2
+
+print(np.in1d(['solid','liquid','plasma'],arr2))
