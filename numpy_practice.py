@@ -147,3 +147,4 @@ print(new_arrayz['x'])
 np.savetxt('textfile_array.txt',array1,delimiter=',')
 text_load=np.loadtxt('textfile_array.txt',delimiter=',')
 print(text_load)
+
